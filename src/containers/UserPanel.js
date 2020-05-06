@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import UserPanel from "../components/UserPanel";
-import { fetchUser } from "../store/actions/userActions";
+import { getUser } from "../store/wrapers";
 const mapStateToProps = ({ userReducer }) => {
   return {
     name: userReducer.name,
@@ -9,4 +9,8 @@ const mapStateToProps = ({ userReducer }) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchUser })(UserPanel);
+const mapDispatchToProps = (dispatch) => ({
+  getUser: () => dispatch(getUser()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPanel);

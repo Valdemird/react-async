@@ -1,8 +1,5 @@
 import { createStore, applyMiddleware } from "redux";
-import { createEpicMiddleware } from "redux-observable";
-import Epics from "../store/epics";
+import thunk from "redux-thunk";
 import reducer from "./reducers";
-const epicMiddleware = createEpicMiddleware();
-const store = createStore(reducer, applyMiddleware(epicMiddleware));
-epicMiddleware.run(Epics);
+const store = createStore(reducer, applyMiddleware(thunk));
 export default store;
