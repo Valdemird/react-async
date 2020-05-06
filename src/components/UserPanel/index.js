@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./UserPanel.scss";
-const UserPanel = ({ name, picture, loading, getUser, ...props }) => {
+const UserPanel = ({ name, picture, loading, error, getUser, ...props }) => {
   console.log(props);
   return (
     <div className="UserPanel">
@@ -12,6 +12,7 @@ const UserPanel = ({ name, picture, loading, getUser, ...props }) => {
       <button disabled={loading} onClick={getUser}>
         Change User
       </button>
+      <p>{error}</p>
     </div>
   );
 };
@@ -21,6 +22,7 @@ UserPanel.propTypes = {
   picture: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   getUser: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
 
 export default UserPanel;

@@ -18,6 +18,8 @@ const reducer = (state = initState, action) => {
         picture: action.payload.picture,
         loading: false,
       };
+    case USER_TYPES.FETCH_ERROR:
+      return { ...state, error: action.payload, loading: false };
     default:
       return state;
   }

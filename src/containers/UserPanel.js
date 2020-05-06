@@ -6,6 +6,7 @@ const mapStateToProps = ({ userReducer }) => {
     name: userReducer.name,
     picture: userReducer.picture,
     loading: userReducer.loading,
+    error: userReducer.error,
   };
 };
 

@@ -1,4 +1,4 @@
-import { fetchUser, uploadUser } from "../actions/userActions";
+import { fetchUser, uploadUser, fetchError } from "../actions/userActions";
 import Axios from "axios";
 
 export const getUser = () => (dispatch) => {
@@ -10,5 +10,5 @@ export const getUser = () => (dispatch) => {
       picture = picture.thumbnail;
       dispatch(uploadUser(name, picture));
     })
-    .catch();
+    .catch((error) => dispatch(fetchError(error.message)));
 };
